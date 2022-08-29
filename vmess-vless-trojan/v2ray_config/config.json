@@ -1,0 +1,67 @@
+{
+  "inbounds": [
+    {
+      "port": 23323,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "$UUID"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "$UUID-vless"
+        }
+      }
+    },
+    {
+      "port": 23324,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "$UUID"
+          }
+        ],
+        "disableInsecureEncryption": true
+      },
+      "streamSettings": {
+        "network": "ws",
+        "allowInsecure": false,
+        "wsSettings": {
+          "path": "/$UUID-vmess"
+        }
+      }
+    },
+    {
+     "port": 23325,
+     "protocol": "trojan",
+     "settings": {
+        "clients": [
+          {
+            "password":"$UUID",
+            "level": 0,
+            "email": "love@v2fly.org"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "allowInsecure": false,
+        "wsSettings": {
+          "path": "/$UUID-trojan"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom"
+    }
+  ]
+}
